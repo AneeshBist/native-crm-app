@@ -6,7 +6,9 @@ import { useUpdateFields, useCreateCustomer } from "../../hooks";
 const Form = ({ handleSubmit }) => {
   const { fields, setFormField } = useUpdateFields();
   const { firstName, lastName } = fields;
-  const onPress = handleSubmit();
+  const onPress = () => {
+    handleSubmit();
+  };
 
   return (
     <View>
