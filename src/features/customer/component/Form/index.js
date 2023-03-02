@@ -1,10 +1,14 @@
 import { View, TextInput } from "react-native";
+import { Text } from "react-native";
 import Button from "../../../../components/Button";
 import styles from "./styles";
 import { useUpdateFields, useCreateCustomer } from "../../hooks";
+import RegionsDropdown from "../Dropdown";
+import ToggleSwitch from "../Toggle";
+import { PENDING, INPROGRESS } from "../../../../utils/helpers";
 
-const Form = ({ handleSubmit }) => {
-  const { fields, setFormField } = useUpdateFields();
+const Form = ({ handleSubmit, status, customerID }) => {
+  const { fields, setFormField } = useUpdateFields(customerID);
   const { firstName, lastName } = fields;
   const onPress = () => {
     handleSubmit();
@@ -27,7 +31,17 @@ const Form = ({ handleSubmit }) => {
         onChangeText={(text) => setFormField("lastName", text)}
       />
 
-      <Button text="Submit" onPress={onPress} />
+      <RegionsDropdown setFormField={setFormField} />
+      <View>
+        <Text>Active: </Text>
+        <ToggleSwitch setFormField={setFormField} />
+      </View>
+
+      <Button
+        text="Submit"
+        onPress={onPress}
+        //disabled={status !== PENDING && status !== INPROGRESS}
+      />
     </View>
   );
 };
