@@ -1,10 +1,11 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { View, Text } from "react-native";
-import Button from "../components/Button";
+import Button from "../../components/Button";
 import styles from "./styles";
+import { clear } from "../../utils/async_storage";
 
-const Welcome = () => {
+const WelcomeScreen = () => {
   const navigation = useNavigation();
 
   return (
@@ -19,9 +20,9 @@ const Welcome = () => {
         text="View Customers"
       />
 
-      <Button text="Reset" />
+      <Button text="Reset" onPress={() => clear()} />
     </View>
   );
 };
 
-export default Welcome;
+export default WelcomeScreen;

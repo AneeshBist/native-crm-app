@@ -1,12 +1,17 @@
 import React from "react";
-import { useNewCustomer, useCreateCustomerStatus } from "../../hooks";
+import { View, Text } from "react-native";
 import Form from "../Form";
+import { useCreateCustomer, useCreateCustomerStatus } from "../../hooks";
 
 const New = () => {
-  const { onPress } = useNewCustomer();
+  const { onSubmit } = useCreateCustomer();
   const status = useCreateCustomerStatus();
-
-  return <Form onSubmit={onPress} status={status} />;
+  return (
+    <View>
+      <Text>New Customer</Text>
+      <Form handleSubmit={onSubmit} status={status} />
+    </View>
+  );
 };
 
 export default New;

@@ -28,20 +28,26 @@ const initialState = {
 };
 
 const reducers = {
-  createCustomer: (state) => {},
+  createCustomer: (state) => {
+    state.create.status = REQUESTING;
+  },
   createCustomerResult: (state, { payload }) => {
-    state.create.status = SUCCESS;
     state.list.customers = payload;
+    state.create.status = SUCCESS;
     state.form.fields = initialState.form.fields;
     state.create = initialState.create;
   },
-  createCustomerError: (state, { payload }) => {},
-  editCustomer: (state, { payload }) => {
+  createCustomerError: (state, { payload }) => {
+    state.error.message = payload;
+    state.create.status = ERROR;
+    state.form.fields = initialState.form.fields;
+  },
+  editCustomer: (state) => {
     state.edit.status = REQUESTING;
   },
   editCustomerResult: (state, { payload }) => {
-    state.edit.status = SUCCESS;
     state.list.customers = payload;
+    state.edit.status = SUCCESS;
     state.form.fields = initialState.form.fields;
     state.edit = initialState.edit;
   },
@@ -49,12 +55,15 @@ const reducers = {
     state.edit = payload;
   },
   editCustomerError: (state) => {
-    state.edit.status = ERROR;
     state.error.message = payload;
+    state.edit.status = ERROR;
     state.form.fields = initialState.form.fields;
   },
 
   loadCustomers: (state) => {},
+  loadResult: (state, { payload }) => {
+    state.list.customers = payload;
+  },
   setFormField: (state, { payload }) => {
     const current = state.form.fields;
     const { field, value } = payload;
@@ -86,6 +95,7 @@ export const {
   createCustomerError,
   createCustomerResult,
   loadCustomers,
+  loadResult,
   editCustomer,
   editCustomerResult,
   editCustomerStatus,

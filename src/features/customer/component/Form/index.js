@@ -3,8 +3,8 @@ import { Text } from "react-native";
 import Button from "../../../../components/Button";
 import styles from "./styles";
 import { useUpdateFields, useCreateCustomer } from "../../hooks";
-import RegionsDropdown from "../Dropdown";
-import ToggleSwitch from "../Toggle";
+import RegionsDropdown from "../../../../components/Dropdown";
+import ToggleSwitch from "../../../../components/Toggle";
 import { PENDING, INPROGRESS } from "../../../../utils/helpers";
 
 const Form = ({ handleSubmit, status, customerID }) => {
@@ -40,7 +40,7 @@ const Form = ({ handleSubmit, status, customerID }) => {
       <Button
         text="Submit"
         onPress={onPress}
-        //disabled={status !== PENDING && status !== INPROGRESS}
+        disabled={status !== PENDING && status !== INPROGRESS}
       />
     </View>
   );

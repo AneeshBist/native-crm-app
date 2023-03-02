@@ -2,7 +2,7 @@ import { useState } from "react";
 import { View } from "react-native";
 import { Dropdown } from "react-native-element-dropdown";
 import { styles } from "./styles";
-import { regions } from "../../../../utils/helpers";
+import { regions } from "../../utils/helpers";
 
 const RegionsDropdown = ({ setFormField }) => {
   const [value, setValue] = useState(null);

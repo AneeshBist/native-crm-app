@@ -8,9 +8,7 @@ const ViewCustomer = ({ item }) => {
   console.log("item: ", item);
 
   return (
-    <TouchableOpacity
-      onPress={() => navigate("Edit Customer", { customerID: item.id })}
-    >
+    <TouchableOpacity onPress={() => navigate("Customer Details", { item })}>
       <View key={item.id} style={{ borderWidth: 1, padding: 10, margin: 10 }}>
         <Text key={"custId"}>ID: {item.id}</Text>
         <Text key={"fname"}>First Name: {item.firstName}</Text>

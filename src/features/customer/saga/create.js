@@ -1,5 +1,6 @@
 import { put, delay, select, takeLatest } from "redux-saga/effects";
 import * as actions from "../reducers";
+import { set } from "../../../utils/async_storage";
 
 export function* watchCreateCustomer() {
   yield takeLatest(actions.createCustomer.toString(), takeCreateCustomer);
@@ -19,6 +20,7 @@ export function* takeCreateCustomer() {
     yield delay(500);
 
     const results = [customer, ...customers];
+    yield set("CUSTOMERS_KEY", results);
 
     yield put(actions.createCustomerResult(results));
   } catch (error) {

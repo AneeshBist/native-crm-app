@@ -1,17 +1,15 @@
 import React from "react";
 import { SafeAreaView, ScrollView } from "react-native";
-import Edit from "../../../features/customer/component/Edit";
-
+import Details from "../../../features/customer/component/Details";
 import styles from "./style";
 
-const EditScreen = () => {
+const DetailsScreen = () => {
   return (
     <SafeAreaView style={styles.view}>
       <ScrollView>
-        <Edit />
+        <Details />
       </ScrollView>
     </SafeAreaView>
   );
 };
-
-export default EditScreen;
+export default DetailsScreen;
