@@ -38,14 +38,8 @@ const Notification = () => {
       Notifications.addNotificationReceivedListener(handleNotification);
     return () => listener.remove();
   }, []);
-
-  return (
-    <View>
-      <Text>Press the button to get your very own animal of the day!</Text>
-
-      <Button onPress={() => onSubmit(15)} title="Schedule" />
-    </View>
-  );
+  console.log("running notifuications");
+  return onSubmit(10);
 };
 
 export default Notification;

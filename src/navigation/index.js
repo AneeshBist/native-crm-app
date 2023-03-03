@@ -6,7 +6,6 @@ import EditScreen from "../screens/customer/Edit";
 import ListCustomerByRegion from "../screens/region/ListCustomerByRegion";
 import ListOfRegions from "../screens/region/ListOfRegions";
 import DetailsScreen from "../screens/customer/Details";
-import NotificationScreen from "../screens/Notification";
 
 const Stack = createNativeStackNavigator();
 const Navigation = () => {
@@ -19,7 +18,6 @@ const Navigation = () => {
         <Stack.Screen name="Customer List" component={ListCustomerByRegion} />
         <Stack.Screen name="Region List" component={ListOfRegions} />
         <Stack.Screen name="Customer Details" component={DetailsScreen} />
-        <Stack.Screen name="Notification" component={NotificationScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
