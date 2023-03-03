@@ -32,7 +32,7 @@
     2. View Customers: to View Existing Customers
     3. Reset: to clear all the data
   - ADD Customer
-    - this Screen allows to add a customer by entering first anem, last name, choosing region from dropdown and active status by toggle
+    - this Screen allows to add a customer by entering first anem, last name, additional customer information and choosing region from dropdown
   - Region List
     - this Screen allows to view the list of regions of the customers
   - Customer List
@@ -46,8 +46,8 @@
 
   - it shows a form requiring first name, last name, region of customer and active status.
   - enter first name and last name of user
+  - enter addtional user information
   - select his region from dropdown menu
-  - toggle the active switch to mark user as active
   - clicking on submit will register the user
 
   2. Click: View Customers

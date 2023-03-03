@@ -20,7 +20,13 @@ const WelcomeScreen = () => {
         text="View Customers"
       />
 
-      <Button text="Reset" onPress={() => clear()} />
+      <Button
+        text="Reset"
+        onPress={() => {
+          console.log("Clearing data...");
+          clear();
+        }}
+      />
     </View>
   );
 };

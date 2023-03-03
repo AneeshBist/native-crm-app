@@ -8,9 +8,9 @@ import ViewCustomer from "../View";
 const List = ({ region }) => {
   const { navigate } = useNavigation();
   const allCustomers = useCustomerList();
-  const fitleredCustomers = allCustomers.filter(
-    (customer) => customer.region === region
-  );
+  const fitleredCustomers = allCustomers
+    ? allCustomers.filter((customer) => customer.region === region)
+    : null;
   return (
     <View>
       <Text>Customers List</Text>

@@ -1,5 +1,6 @@
 import { put, select, takeLatest } from "redux-saga/effects";
 import * as actions from "../reducers";
+import { set } from "../../../utils/async_storage";
 
 export function* watchEditCustomer() {
   yield takeLatest(actions.editCustomer.toString(), takeEditCustomer);
@@ -19,6 +20,7 @@ export function* takeEditCustomer(action) {
       return fields;
     });
 
+    //yield set("CUSTOMERS_KEY", result);
     yield put(actions.editCustomerResult(result));
   } catch (error) {
     yield put(actions.editCustomerError(error.toString()));

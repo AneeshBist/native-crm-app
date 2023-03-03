@@ -4,7 +4,7 @@ import { Dropdown } from "react-native-element-dropdown";
 import { styles } from "./styles";
 import { regions } from "../../utils/helpers";
 
-const RegionsDropdown = ({ setFormField }) => {
+const RegionsDropdown = ({ setFormField, region }) => {
   const [value, setValue] = useState(null);
   const [isFocus, setIsFocus] = useState(false);
   console.log("sel value: ", value);
@@ -28,7 +28,7 @@ const RegionsDropdown = ({ setFormField }) => {
         maxHeight={300}
         labelField="label"
         valueField="value"
-        placeholder={!isFocus ? "Choose a region" : "..."}
+        placeholder={region ? region : "Choose a region"}
         searchPlaceholder="Search..."
         value={value}
         onFocus={() => setIsFocus(true)}

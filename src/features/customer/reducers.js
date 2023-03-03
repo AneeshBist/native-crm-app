@@ -8,7 +8,7 @@ const initialState = {
     fields: {
       firstName: "",
       lastName: "",
-      active: false,
+      active: "",
       region: "",
     },
   },
@@ -54,7 +54,7 @@ const reducers = {
   editCustomerStatus: (state, { payload }) => {
     state.edit = payload;
   },
-  editCustomerError: (state) => {
+  editCustomerError: (state, { payload }) => {
     state.error.message = payload;
     state.edit.status = ERROR;
     state.form.fields = initialState.form.fields;

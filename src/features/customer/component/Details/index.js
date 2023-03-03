@@ -15,7 +15,7 @@ const Details = () => {
       <Text key={"custId"}>ID: {item.id}</Text>
       <Text key={"fname"}>First Name: {item.firstName}</Text>
       <Text key={"lname"}>Last Name: {item.lastName}</Text>
-      <Text key={"active"}>Active: {item.active ? "True" : "False"}</Text>
+      <Text key={"active"}>Active: {item.active}</Text>
       <Text key={"region"}>Region: {item.region}</Text>
       <Button text="Edit Customer" onPress={onPress} />
     </View>

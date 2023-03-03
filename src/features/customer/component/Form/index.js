@@ -4,16 +4,14 @@ import Button from "../../../../components/Button";
 import styles from "./styles";
 import { useUpdateFields, useCreateCustomer } from "../../hooks";
 import RegionsDropdown from "../../../../components/Dropdown";
-import ToggleSwitch from "../../../../components/Toggle";
 import { PENDING, INPROGRESS } from "../../../../utils/helpers";
 
 const Form = ({ handleSubmit, status, customerID }) => {
   const { fields, setFormField } = useUpdateFields(customerID);
-  const { firstName, lastName } = fields;
+  const { firstName, lastName, active, region } = fields;
   const onPress = () => {
     handleSubmit();
   };
-
   return (
     <View>
       <TextInput
@@ -30,12 +28,15 @@ const Form = ({ handleSubmit, status, customerID }) => {
         value={lastName || ""}
         onChangeText={(text) => setFormField("lastName", text)}
       />
+      <TextInput
+        key={"active"}
+        style={styles.textInput}
+        placeholder="additional active information"
+        value={active || ""}
+        onChangeText={(text) => setFormField("active", text)}
+      />
 
-      <RegionsDropdown setFormField={setFormField} />
-      <View>
-        <Text>Active: </Text>
-        <ToggleSwitch setFormField={setFormField} />
-      </View>
+      <RegionsDropdown setFormField={setFormField} region={region} />
 
       <Button
         text="Submit"

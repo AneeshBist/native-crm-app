@@ -7,10 +7,11 @@ export function* watchLoadCustomers() {
 }
 
 export function* takeLoadCustomers() {
+  console.log("ASYNC Storage: LOAD");
   try {
     const customers = yield get("CUSTOMERS_KEY");
 
-    yield delay(1500);
+    yield delay(500);
 
     yield put(actions.loadResult(customers));
   } catch (error) {
